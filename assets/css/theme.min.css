@@ -1450,6 +1450,13 @@ button.mfp-close:hover {
     margin-right: 6px
 }
 
+.recent-works-slider .blog-post-img img {
+    width: 100%; /* Gambar akan memenuhi lebar container */
+    height: 250px; /* Tetapkan tinggi tetap untuk semua gambar */
+    object-fit: cover; /* Memastikan gambar tetap proporsional dan memenuhi area */
+    border-radius: 10px; /* Opsional: Tambahkan radius untuk sudut melengkung */
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -1847,7 +1854,7 @@ body.loaded:after {
     color: #fff
 }
 
-.bg-dark-content h1 a,.bg-dark h1 a,*[class*='bg-black'] h1 a,.bg-dark-content h2 a,.bg-dark h2 a,*[class*='bg-black'] h2 a,.bg-dark-content h3 a,.bg-dark h3 a,*[class*='bg-black'] h3 a,.bg-dark-content h4 a,.bg-dark h4 a,*[class*='bg-black'] h4 a,.bg-dark-content h5 a,.bg-dark h5 a,*[class*='bg-black'] h5 a,.bg-dark-content h6 a,.bg-dark h6 a,*[class*='bg-black'] h6 a {
+.bg-dark-content h1 a,.bg-dark h1 a,*[class*='bg-black'] h1 a,.bg-dark-content h2 a,.bg-dark h2 a,*[class*='bg-black'] h2 a,.bg-dark-content h3 a,.bg-dark h3 a,*[class*='bg-black'] h3 a,.bg-dark-content h4 a,.bg-dark h4,*[class*='bg-black'] h4 a,.bg-dark-content h5 a,.bg-dark h5 a,*[class*='bg-black'] h5 a,.bg-dark-content h6 a,.bg-dark h6 a,*[class*='bg-black'] h6 a {
     color: white
 }
 

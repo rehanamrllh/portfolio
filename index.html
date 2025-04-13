@@ -13,6 +13,7 @@
 		<link href="assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
 		<link href="assets/plugins/magnific-popup/magnific-popup.min.css" rel="stylesheet">
 		<link href="assets/plugins/swiper/swiper-bundle.min.css" rel="stylesheet">
+		<link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet">
 		<link href="assets/css/theme.min.css" rel="stylesheet">
 		<!-- Fonts/Icons -->
 		<link href="assets/plugins/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -305,26 +306,103 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-								<span class="title-heading text-white-04">Portfolio (Under Development)</span>
+								<span class="title-heading text-white-04">Portfolio</span>
 								<h1 class="display-3 fw-medium">Recent <span class="text-gradient">Works</span></h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore</p>
-								<!-- Slider Nav -->
-								<!<div class="mt-4">
-									<div class="swiper-portfolio-prev button-circle cursor-link">
+								<p>Here are some of my recent projects:</p>
+								<!-- Slider Navigation -->
+								<div class="mt-4">
+									<div class="swiper-recent-prev button-circle cursor-link">
 										<i class="bi bi-arrow-left"></i>
 										<i class="bi bi-arrow-left"></i>
 									</div>
-									<div class="swiper-portfolio-next button-circle cursor-link">
+									<div class="swiper-recent-next button-circle cursor-link">
 										<i class="bi bi-arrow-right"></i>
 										<i class="bi bi-arrow-right"></i>
 									</div>
 								</div>
-								<!-- end Slider Nav -->
+								 <!-- End Slider Navigation -->
 							</div>
-					</div><!-- end container -->
+						</div>
+						<div class="swiper recent-works-slider mt-4">
+							<div class="swiper-wrapper" id="github-projects">
+								<!-- Projects will be dynamically loaded here -->
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			<script>
+				const username = "rehanamrllh"; // Replace with your GitHub username
+				const container = document.getElementById("github-projects");
+
+				// Mapping repository names to image URLs
+				const repoImages = {
+					"classico.github.io": "assets/images/repo1.png",
+					"portfolio": "assets/images/repo2.png",
+					"repo3": "assets/images/repo3.jpg",
+					// Add more repositories and their corresponding images
+				};
+
+				const customRepoNames = {
+					"classico.github.io": "Classico Website",
+					"portfolio": "My Personal Portfolio",
+					"repo3": "Custom Project Name",
+					// Tambahkan repositori lainnya
+				};
+
+				fetch(`https://api.github.com/users/${username}/repos`)
+					.then(response => response.json())
+					.then(repos => {
+						repos.slice(0, 6).forEach(repo => { // Display up to 6 repositories
+							const customName = customRepoNames[repo.name] || repo.name; // Gunakan nama custom jika ada
+							const imageUrl = repoImages[repo.name] || "assets/images/default.jpg"; // Default image if no match
+							const slide = document.createElement("div");
+							slide.className = "swiper-slide";
+							slide.innerHTML = `
+								<div class="blog-post-box">
+									<div class="blog-post-img position-relative">
+										<a class="blog-post-img-link" href="${repo.html_url}" target="_blank">
+											<img src="${imageUrl}" alt="${customName}">
+										</a>
+										<div class="bubble-text">
+											${customName}
+										</div>
+									</div>
+									<div class="mt-4">
+										<h3 class="mb-0">
+											<a class="blog-caption" href="${repo.html_url}" target="_blank">
+												<i class="bi bi-arrow-right"></i>
+												 ${customName}
+											</a>
+										</h3>
+										<p>${repo.description || "No description available."}</p>
+									</div>
+								</div>
+							`;
+							container.appendChild(slide);
+						});
+
+						// Initialize Swiper after content is loaded
+						new Swiper('.recent-works-slider', {
+							slidesPerView: 1,
+							spaceBetween: 20,
+							navigation: {
+								nextEl: '.swiper-recent-next',
+								prevEl: '.swiper-recent-prev',
+							},
+							breakpoints: {
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 3,
+								},
+							},
+						});
+					})
+					.catch(error => console.error("Error fetching GitHub repos:", error));
+			</script>
 			<!-- end Portfolio section -->
 
 			<!-- Awards section -->
@@ -596,6 +674,7 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi4SV0ZRVGoIDH2E00YtJ8Gvg67eaPG5A"></script>
 		<script src="assets/plugins/jquery.min.js"></script>
 		<script src="assets/plugins/plugins.js"></script>
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 		<script src="assets/js/functions.min.js"></script>
 	</body>
 </html>
