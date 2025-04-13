@@ -1451,10 +1451,17 @@ button.mfp-close:hover {
 }
 
 .recent-works-slider .blog-post-img img {
-    width: 100%; /* Gambar akan memenuhi lebar container */
-    height: 250px; /* Tetapkan tinggi tetap untuk semua gambar */
-    object-fit: cover; /* Memastikan gambar tetap proporsional dan memenuhi area */
-    border-radius: 10px; /* Opsional: Tambahkan radius untuk sudut melengkung */
+    width: 100%; /* Ensure the image takes the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 600px; /* Set a maximum width for the image */
+    object-fit: cover; /* Ensure the image covers the container proportionally */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.recent-works-slider .swiper-slide {
+    max-width: 700px; /* Set a maximum width for the slide */
+    margin: 0 auto; /* Center the slide */
 }
 
 .header {

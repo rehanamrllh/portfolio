@@ -347,7 +347,8 @@
 				const customRepoNames = {
 					"classico.github.io": "Classico Website",
 					"portfolio": "My Personal Portfolio",
-					"repo3": "Custom Project Name",
+					"PBO_D_Rayhan_148": "My Coursework",
+					"repo3": "My Project 3",
 					// Tambahkan repositori lainnya
 				};
 
@@ -355,7 +356,7 @@
 					.then(response => response.json())
 					.then(repos => {
 						repos.slice(0, 6).forEach(repo => { // Display up to 6 repositories
-							const customName = customRepoNames[repo.name] || repo.name; // Gunakan nama custom jika ada
+							const customName = customRepoNames[repo.name] || repo.name; // Use custom name if available
 							const imageUrl = repoImages[repo.name] || "assets/images/default.jpg"; // Default image if no match
 							const slide = document.createElement("div");
 							slide.className = "swiper-slide";
@@ -365,15 +366,12 @@
 										<a class="blog-post-img-link" href="${repo.html_url}" target="_blank">
 											<img src="${imageUrl}" alt="${customName}">
 										</a>
-										<div class="bubble-text">
-											${customName}
-										</div>
 									</div>
 									<div class="mt-4">
 										<h3 class="mb-0">
 											<a class="blog-caption" href="${repo.html_url}" target="_blank">
 												<i class="bi bi-arrow-right"></i>
-												 ${customName}
+												${customName}
 											</a>
 										</h3>
 										<p>${repo.description || "No description available."}</p>
