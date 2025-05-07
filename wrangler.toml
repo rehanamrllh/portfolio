@@ -1,0 +1,6 @@
+name = "rehanamrllh"
+compatibility_date = "2025-05-07"
+
+[site]
+bucket = "./dist"
+entry-point = "./"
