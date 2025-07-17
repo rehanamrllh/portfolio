@@ -3571,9 +3571,9 @@ img.u-pull-left {
     max-width: 1536px;
     margin-inline: auto;
     position: relative;
-    height: 150px;
+    height: 200px;
     margin-top: 10rem;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
     overflow: hidden;
     mask-image: linear-gradient(to right,
             rgba(0, 0, 0, 0),
