@@ -284,22 +284,12 @@ const ssMoveTo = function () {
 
 }; // end ssMoveTo
 
-function updateHeroClock() {
-    const el = document.getElementById('hero-clock');
-    if (!el) return;
-    const now = new Date();
-    el.textContent = now.toLocaleTimeString('en-GB', { hour12: false });
-}
-setInterval(updateHeroClock, 1000);
-updateHeroClock();
 
 
 /* Initialize
 * ------------------------------------------------------ */
 (function ssInit() {
 
-    //    ssPreloader();
-    ssMobileMenu();
     ssScrollSpy();
     ssViewAnimate();
     ssSwiper();
