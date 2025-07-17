@@ -1762,62 +1762,61 @@ img,
  * -------------------------------------------------------------------
  * - markup:
  *
- * <div id="preloader">
- *    <div id="loader"></div>
- * </div>
+ *   <div class="preloader">
+ *       <div class="counter">0</div>
+ *   </div>
  *
  * ------------------------------------------------------------------- */
 
-#preloader {
-    position        : fixed;
-    display         : flex;
-    flex-flow       : row wrap;
-    justify-content : center;
-    align-items     : center;
-    background      : var(--color-body);
-    z-index         : 500;
-    height          : 100vh;
-    width           : 100%;
-    opacity         : 1;
+
+.preloader {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #070707;
+  z-index: 10000000;
 }
 
-.no-js #preloader {
-    display : none;
+.preloader::before {
+  /* content: 'Loading'; */
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: rgba(255, 255, 255, .03);
 }
 
-#loader {
-    width             : var(--vspace-2);
-    height            : var(--vspace-2);
-    padding           : 0;
-    background-color  : white;
-    border-radius     : 100%;
-    -webkit-animation : sk-scaleout 1.0s infinite ease-in-out;
-    animation         : sk-scaleout 1.0s infinite ease-in-out;
+.counter {
+  position: relative;
+  color: #fff;
+  font-size: 14em;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 1;
 }
 
-@-webkit-keyframes sk-scaleout {
-    0% {
-        -webkit-transform : scale(0);
-        transform         : scale(0);
-    }
-
-    100% {
-        -webkit-transform : scale(1);
-        transform         : scale(1);
-        opacity           : 0;
-    }
+.counter::after {
+  content: '%';
+  font-size: 0.5em;
 }
 
-@keyframes sk-scaleout {
-    0% {
-        transform : scale(0);
-    }
-
-    100% {
-        transform : scale(1);
-        opacity   : 0;
-    }
+.hide {
+  opacity: 0;
+  transition: 0.8s;
+  transition-delay: 0.3s;
 }
+
+.active {
+  transform: translateY(-100vh);
+  transition: ease-in-out 0.7s;
+  transition-delay: 1.3s;
+}
+
 
 
 
@@ -3211,22 +3210,17 @@ img.u-pull-left {
 /* --------------------------------------------------------------------
  * ## intro hover
  * -------------------------------------------------------------------- */
-.hover-reveal__extra {
-    display: none;
-    color: #bdbdbd;
-    font-size: 1em;
-    margin-top: 1em;
-    transition: opacity 0.3s;
+.hover-title .hover-word {
+    transition: color 0.25s cubic-bezier(.4,0,.2,1);
+    cursor: pointer;
+}
+.hover-title .hover-word:hover {
+    color: var(--color-1, hsla(36, 72%, 70%, 1));
 }
 
-.hover-reveal:hover .hover-reveal__extra,
-.hover-reveal:focus .hover-reveal__extra {
-    display: block;
-    opacity: 1;
-}
- /* --------------------------------------------------------------------
- * ## intro social
- * -------------------------------------------------------------------- */
+/* --------------------------------------------------------------------
+* ## intro social
+* -------------------------------------------------------------------- */
 .intro-social {
     z-index          : 1;
     list-style       : none;
@@ -3258,8 +3252,8 @@ img.u-pull-left {
 }
 
 /* --------------------------------------------------------------------
- * ## intro scrolldown
- * -------------------------------------------------------------------- */
+* ## intro scrolldown
+* -------------------------------------------------------------------- */
 .intro-scrolldown {
     display         : block;
     height          : var(--vspace-1);
@@ -3288,9 +3282,9 @@ img.u-pull-left {
 }
 
 /* ------------------------------------------------------------------- 
- * responsive:
- * intro
- * ------------------------------------------------------------------- */
+* responsive:
+* intro
+* ------------------------------------------------------------------- */
 @media screen and (max-width: 1600px) {
     .s-intro {
         --text-huge-multiplier : .92;
@@ -3301,11 +3295,11 @@ img.u-pull-left {
     .s-intro {
         --text-huge-multiplier : .85;
     }
-
+    
     .intro-social {
         left : calc(100% - 4rem);
     }
-
+    
     .intro-scrolldown {
         right : 4rem;
     }
@@ -3315,7 +3309,7 @@ img.u-pull-left {
     .s-intro {
         --text-huge-multiplier : .8;
     }
-
+    
     .intro-content {
         padding-top : calc(14vh + var(--header-height));
     }
@@ -3325,7 +3319,7 @@ img.u-pull-left {
     .s-intro {
         --text-huge-multiplier : .75;
     }
-
+    
     .intro-content .text-huge-title br {
         display : none;
     }
@@ -3336,18 +3330,18 @@ img.u-pull-left {
         --gutter               : 4rem;
         --text-huge-multiplier : .7;
     }
-
+    
     .intro-content {
         min-height  : 0;
         align-items : flex-start;
         padding-top : calc(9.6rem + var(--header-height));
     }
-
+    
     .intro-content .text-huge-title {
         padding-right : 0;
         margin-bottom : var(--vspace-1_5);
     }
-
+    
     .intro-social {
         width         : 100%;
         flex-wrap     : wrap;
@@ -3357,7 +3351,7 @@ img.u-pull-left {
         position      : relative;
         left          : var(--gutter);
     }
-
+    
     .intro-social li {
         padding : 0 .6rem;
     }
@@ -3368,7 +3362,7 @@ img.u-pull-left {
         --gutter               : 2rem;
         --text-huge-multiplier : .58;
     }
-
+    
     .intro-scrolldown {
         right : 2.4rem;
     }
@@ -3378,7 +3372,7 @@ img.u-pull-left {
     .s-intro {
         --text-huge-multiplier : .55;
     }
-
+    
     .intro-social {
         left : 1.4rem;
     }
@@ -3389,7 +3383,7 @@ img.u-pull-left {
         font-size   : var(--text-display-1);
         line-height : var(--vspace-2);
     }
-
+    
     .intro-social {
         left : 0;
     }
@@ -3404,10 +3398,10 @@ img.u-pull-left {
 
 
 /* ===================================================================
- * # ABOUT
- *
- *
- * ------------------------------------------------------------------- */
+* # ABOUT
+*
+*
+* ------------------------------------------------------------------- */
 
 .s-about {
     padding-top    : var(--vspace-4);
@@ -3415,8 +3409,29 @@ img.u-pull-left {
 }
 
 /* --------------------------------------------------------------------
- * ## about info
- * -------------------------------------------------------------------- */
+* ## about hover
+* -------------------------------------------------------------------- */
+.hover-about-reveal__extra {
+    display: flex;
+    color: #bdbdbd;
+    font-size: 1em;
+    margin-top: 1em;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s cubic-bezier(.4,0,.2,1), max-height 0.4s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+}
+.hover-about-reveal:hover .hover-about-reveal__extra,
+.hover-about-reveal:focus .hover-about-reveal__extra {
+    display: flex;
+    opacity: 1;
+    max-height: 200px;
+    pointer-events: auto;
+}
+/* --------------------------------------------------------------------
+* ## about info
+* -------------------------------------------------------------------- */
 .about-info {
     --gutter    : 0;
     width       : 100%;
