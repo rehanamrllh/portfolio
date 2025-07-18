@@ -1828,10 +1828,10 @@ img,
 }
 
 .preloader::before {
-    /* content: 'Loading'; */
+    content: 'Loading';
     position: absolute;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10em;
+    font-size: 15em;
     text-transform: uppercase;
     font-weight: 900;
     color: rgba(255, 255, 255, .03);
@@ -1840,7 +1840,7 @@ img,
 .counter {
     position: relative;
     color: #fff;
-    font-size: 14em;
+    font-size: 7em;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
     z-index: 1;
@@ -1859,8 +1859,8 @@ img,
 
 .active {
     transform: translateY(-100vh);
-    transition: ease-in-out 0.7s;
-    transition-delay: 1.3s;
+    transition: ease-in-out 0.8s;
+    transition-delay: 0.7s;
 }
 
 @media screen and (max-width: 600px) {
@@ -1869,7 +1869,7 @@ img,
     }
 
     .counter {
-        font-size: 7em;
+        font-size: 3em;
     }
 }
 
@@ -3568,12 +3568,12 @@ img.u-pull-left {
 
 .media-wrapper {
     width: 90%;
+    height: 500px;
     max-width: 1536px;
     margin-inline: auto;
     position: relative;
-    height: 200px;
     margin-top: 10rem;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
     overflow: hidden;
     mask-image: linear-gradient(to right,
             rgba(0, 0, 0, 0),
@@ -3617,11 +3617,11 @@ img.u-pull-left {
 }
 
 .item {
-    width: 200px;
-    height: 100px;
-    border-radius: 6px;
+    width: 300px;
+    height: 200px;
+    border-radius: 4px;
     position: absolute;
-    left: max(calc(200px * 8), 100%);
+    left: max(calc(270px * 8), 100%);
     animation-name: scrollLeft;
     animation-duration: 30s;
     animation-timing-function: linear;
