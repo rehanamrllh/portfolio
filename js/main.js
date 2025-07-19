@@ -6,8 +6,6 @@
 
 function counter() {
     var count = setInterval(function () {
-        // Use vanilla JS or ensure jQuery is loaded if you want to use $()
-        // For this example, I'll convert to vanilla JS
         var counterElement = document.querySelector(".counter");
         if (!counterElement) {
             clearInterval(count);
@@ -19,56 +17,20 @@ function counter() {
             clearInterval(count);
             counterElement.classList.add("hide");
             document.querySelector(".preloader").classList.add("active");
-            // Trigger the rest of your page animations after the preloader is done
-            document.querySelector('html').classList.remove('ss-preload');
-            document.querySelector('html').classList.add('ss-loaded');
-            document.querySelectorAll('.ss-animated').forEach(function (item) {
-                item.classList.remove('ss-animated');
-            });
+            // Tambahkan delay sebelum menghapus kelas ss-preload dan menambahkan ss-loaded
+            // Ini penting agar animasi CSS memiliki waktu untuk berjalan sepenuhnya
+            setTimeout(function() {
+                document.querySelector('html').classList.remove('ss-preload');
+                document.querySelector('html').classList.add('ss-loaded');
+                document.querySelectorAll('.ss-animated').forEach(function (item) {
+                    item.classList.remove('ss-animated');
+                });
+            }, 1500); // Sesuaikan delay ini dengan durasi transisi CSS (1.5 detik)
         }
     }, 10);
 }
 
 window.addEventListener('load', counter);
-
-
-/* Mobile Menu
- * ---------------------------------------------------- */
-const ssMobileMenu = function () {
-
-    const toggleButton = document.querySelector('.mobile-menu-toggle');
-    const mainNavWrap = document.querySelector('.main-nav-wrap');
-    const siteBody = document.querySelector("body");
-
-    if (!(toggleButton && mainNavWrap)) return;
-
-    toggleButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        toggleButton.classList.toggle('is-clicked');
-        siteBody.classList.toggle('menu-is-open');
-    });
-
-    mainNavWrap.querySelectorAll('.main-nav a').forEach(function (link) {
-        link.addEventListener("click", function (event) {
-
-            // at 800px and below
-            if (window.matchMedia('(max-width: 800px)').matches) {
-                toggleButton.classList.toggle('is-clicked');
-                siteBody.classList.toggle('menu-is-open');
-            }
-        });
-    });
-
-    window.addEventListener('resize', function () {
-
-        // above 800px
-        if (window.matchMedia('(min-width: 801px)').matches) {
-            if (siteBody.classList.contains('menu-is-open')) siteBody.classList.remove('menu-is-open');
-            if (toggleButton.classList.contains("is-clicked")) toggleButton.classList.remove("is-clicked");
-        }
-    });
-
-}; // end ssMobileMenu
 
 
 /* Highlight active menu link on pagescroll

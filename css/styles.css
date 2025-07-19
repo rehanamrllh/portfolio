@@ -43,15 +43,13 @@
  *      ## MailtoUI style overrides
  * # PAGE WRAP
  *      ## circles
- * # SITE HEADER
- *      ## main navigation
- *      ## mobile menu toggle
  * # INTRO
  *      ## intro social
  *      ## intro scrolldown
  * # ABOUT
  *      ## about info
  *      ## about expertise
+ *      ## media wrapper
  *      ## about timelines
  * # WORKS
  *      ## works portfolio
@@ -1814,7 +1812,6 @@ img,
  *
  * ------------------------------------------------------------------- */
 
-
 .preloader {
     position: fixed;
     top: 0;
@@ -1823,10 +1820,11 @@ img,
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: #070707;
+    background: var(--color-preloader-bg);
     z-index: 10000000;
+    /* Tambahkan overflow hidden untuk menyembunyikan bagian yang keluar dari viewport */
+    overflow: hidden;
 }
-
 .preloader::before {
     content: 'Loading';
     position: absolute;
@@ -1836,7 +1834,6 @@ img,
     font-weight: 900;
     color: rgba(255, 255, 255, .03);
 }
-
 .counter {
     position: relative;
     color: #fff;
@@ -1858,21 +1855,22 @@ img,
 }
 
 .active {
-    transform: translateY(-100vh);
-    transition: ease-in-out 0.8s;
-    transition-delay: 0.7s;
+    /* Mengubah bentuk menjadi setengah lingkaran dan bergerak ke atas */
+    border-radius: 0 0 50% 50%; /* Membuat bagian bawah melengkung */
+    transform: translateY(-100%) scaleX(1.5); /* Menggeser ke atas dan sedikit melebar */
+    transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), border-radius 1.5s ease-in-out; /* Transisi lebih smooth dan efek bounce */
+    opacity: 0; /* Menghilangkan preloader setelah animasi */
+    pointer-events: none; /* Memastikan preloader tidak bisa diklik setelah hilang */
 }
 
 @media screen and (max-width: 600px) {
     .preloader::before {
         font-size: 5em;
     }
-
     .counter {
         font-size: 3em;
     }
 }
-
 
 
 
@@ -3543,6 +3541,7 @@ img.u-pull-left {
 /* --------------------------------------------------------------------
 * ## media wrapper
 * -------------------------------------------------------------------- */
+
 *,
 *::before,
 *::after {
@@ -3553,95 +3552,79 @@ img.u-pull-left {
     margin: 0;
 }
 
-/* --------------------------------------------------------------------
- * ## media wrapper
- * -------------------------------------------------------------------- */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-}
 
 .media-wrapper {
     width: 90%;
-    height: 500px;
+    height: 150px;
     max-width: 1536px;
     margin-inline: auto;
     position: relative;
-    margin-top: 10rem;
-    margin-bottom: 10rem;
     overflow: hidden;
     mask-image: linear-gradient(to right,
             rgba(0, 0, 0, 0),
             rgba(0, 0, 0, 1) 20%,
             rgba(0, 0, 0, 1) 80%,
             rgba(0, 0, 0, 0));
-    /* Tambahkan ini untuk transisi filter */
+            transition: filter 0.3s ease-in-out;
+}
+
+.media-wrapper-bottom {
+    margin-bottom: 200px;
+
+}
+
+.media-wrapper-top {
+    margin-top: 200px;
+
+}
+        
+.itemLeft,
+.itemRight {
+    width: 200px;
+    height: 100px;
+    border-radius: 6px;
+    position: absolute;
+    animation-timing-function: linear;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+
+.itemRight img,
+.itemLeft img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.media-wrapper img {
+    filter: grayscale(100%);
     transition: filter 0.3s ease-in-out;
 }
 
-/* Default: Semua gambar di dalam media-wrapper akan abu-abu */
-.media-wrapper img {
-    filter: grayscale(100%);
-    transition: filter 0.3s ease-in-out; /* Transisi untuk efek hover */
-}
-
-/* Saat media-wrapper di-hover, semua gambar akan kembali ke warna asli */
-
-
-/* Saat item di-hover, gambar di dalam item tersebut akan kembali ke warna asli */
-/* Ini akan menimpa aturan .media-wrapper:hover img jika ada konflik, tapi kita akan menggunakan pendekatan yang lebih spesifik */
-.media-wrapper .item:hover img {
+.media-wrapper .itemLeft:hover img,
+.itemRight:hover img {
     filter: grayscale(0%);
 }
 
-/* Jika media-wrapper tidak di-hover, dan item di-hover, item tersebut akan berwarna asli */
-/* Ini adalah aturan utama untuk efek yang diinginkan */
-.media-wrapper:not(:hover) .item:not(:hover) img {
-    filter: grayscale(100%); /* Default abu-abu saat tidak ada hover pada wrapper */
+.media-wrapper:not(:hover) .itemLeft:hover img,
+.itemRight:not(:hover) img {
+    filter: grayscale(100%);
 }
 
-.media-wrapper:not(:hover) .item:hover img {
-    filter: grayscale(0%); /* Item yang di-hover akan berwarna asli */
+.media-wrapper:not(:hover) .itemLeft:hover img,
+.itemRight:hover img {
+    filter: grayscale(0%);
 }
-
-
-@keyframes scrollLeft {
-    to {
-        left: -200px;
-    }
-}
-
-.item {
-    width: 300px;
-    height: 200px;
-    border-radius: 4px;
-    position: absolute;
-    left: max(calc(270px * 8), 100%);
+.itemLeft {
+    left: max(calc(170px * 8), 100%);
     animation-name: scrollLeft;
-    animation-duration: 30s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Tambahkan ini untuk transisi filter pada item */
-    transition: filter 0.3s ease-in-out;
 }
 
-.item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-    /* Transisi filter sudah ada di .media-wrapper img */
+.itemRight {
+    right: max(calc(170px * 8), calc(100% + 200px));
+    animation-name: scrollRight;
 }
-
 
 .item1 {
     animation-delay: calc(30s / 8 * (8 - 1) * -1);
@@ -3673,6 +3656,18 @@ img.u-pull-left {
 
 .item8 {
     animation-delay: calc(30s / 8 * (8 - 8) * -1);
+}
+
+@keyframes scrollLeft {
+    to {
+        left: -300px;
+    }
+}
+
+@keyframes scrollRight {
+    to {
+        right: -300px;
+    }
 }
 
 /* --------------------------------------------------------------------
