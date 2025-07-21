@@ -3152,70 +3152,8 @@ img.u-pull-left {
 /* --------------------------------------------------------------------
  * ## main navigation
  * -------------------------------------------------------------------- */
-.mobile-home-link a,
-.main-nav a {
-    display: block;
-    font-size: 10px;
-    font-weight: 400;
-    line-height: var(--header-height);
-    text-transform: uppercase;
-    letter-spacing: .35em;
-    color: var(--color-white);
-    /* Changed to use var */
-    transition-property: color, background-color;
-}
 
-.mobile-home-link a:focus,
-.mobile-home-link a:hover,
-.main-nav a:focus,
-.main-nav a:hover {
-    color: var(--color-1);
-}
-
-.mobile-home-link {
-    display: inline-block;
-    position: relative;
-}
-
-.mobile-home-link a {
-    padding: 0 .4rem;
-    margin-left: 2.4rem;
-}
-
-.main-nav {
-    padding: 0;
-}
-
-.main-nav a {
-    padding: 0 2rem 0 2.4rem;
-}
-
-.main-nav .current a {
-    background-color: var(--color-gray-9);
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    flex-flow: row nowrap;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-body);
-    border-width: 1px;
-    border-color: var(--color-border);
-    border-style: none solid solid solid;
-}
-
-.main-nav li {
-    flex: 1 1 0%;
-    padding-left: 0;
-    border-right: 1px solid var(--color-border);
-}
-
-.main-nav li:last-child {
-    border-right: none;
-}
-
+ 
 /* --------------------------------------------------------------------
  * ## mobile menu toggle
  * -------------------------------------------------------------------- */
