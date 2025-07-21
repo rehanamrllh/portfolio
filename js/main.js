@@ -17,20 +17,50 @@ function counter() {
             clearInterval(count);
             counterElement.classList.add("hide");
             document.querySelector(".preloader").classList.add("active");
-            // Tambahkan delay sebelum menghapus kelas ss-preload dan menambahkan ss-loaded
-            // Ini penting agar animasi CSS memiliki waktu untuk berjalan sepenuhnya
-            setTimeout(function() {
+            setTimeout(function () {
                 document.querySelector('html').classList.remove('ss-preload');
                 document.querySelector('html').classList.add('ss-loaded');
                 document.querySelectorAll('.ss-animated').forEach(function (item) {
                     item.classList.remove('ss-animated');
                 });
-            }, 1500); // Sesuaikan delay ini dengan durasi transisi CSS (1.5 detik)
+            }, 1800);
         }
     }, 10);
 }
 
 window.addEventListener('load', counter);
+
+/* Light/Dark Mode Toggle
+* ------------------------------------------------------ */
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.querySelector('.toggle input'); // Update selector
+    const htmlElement = document.documentElement;
+
+    function setTheme(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+
+    // Init theme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light-mode');
+    setTheme(initialTheme);
+    themeToggle.checked = initialTheme === 'light-mode'; // Set checkbox state
+
+    // Toggle theme
+    themeToggle.addEventListener('change', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        setTheme(currentTheme === 'dark' ? 'light-mode' : 'dark');
+    });
+
+    // Watch system changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light-mode');
+        }
+    });
+});
 
 
 /* Highlight active menu link on pagescroll
@@ -260,6 +290,7 @@ const ssMoveTo = function () {
     ssLightbox();
     ssAlertBoxes();
     ssMoveTo();
+    ssModeToggle();
 
 })();
 

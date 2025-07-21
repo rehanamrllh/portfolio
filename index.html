@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js ss-preload" lang="en">
+<html class="no-js ss-preload" data-theme="dark" lang="en">
 
 <head>
 
@@ -28,12 +28,6 @@
 
     <!-- scripts
     ================================================== -->
-    <script> window.addEventListener('load', () => {
-            window.scrollTo(0, 0); // Hapus baris ini jika tidak diperlukan
-        });
-    </script>
-
-
 
 </head>
 
@@ -171,13 +165,12 @@
                             <li><span class="hover-word">Visual</span> <span class="hover-word">Design</span></li>
                             <li><span class="hover-word">UI</span><span class="hover-word">/</span><span
                                     class="hover-word">UX </span> <span class="hover-word">Design</span></li>
-                            <li><span class="hover-word">Software</span> <span class="hover-word">Development</span>
-                            </li>
+                            <li><span class="hover-word">Software</span> <span class="hover-word">Development</span></li>
                             <li><span class="hover-word">Web</span> <span class="hover-word">Development</span></li>
                             <li><span class="hover-word">Prototyping</span></li>
                             <li><span class="hover-word">Illustration</span></li>
                         </ul>
-                        
+
 
                     </div>
                 </div> <!-- end about-expertise -->
@@ -762,13 +755,21 @@
         </footer> <!-- end s-footer -->
 
     </div> <!-- end -s-pagewrap -->
+    <div class="container">
+        <div class="toggle">
+            <input type="checkbox">
+            <span class="button"></span>
+            <span class="label">☼</span>
+        </div>
+    </div>
 
     <!-- Java Script
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <link rel="stylesheet" href="react/build/static/css/main.css">
-    <script src="react/build/static/js/main.js"></script>
+    <script>window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });</script>
 </body>
 
 </html>
