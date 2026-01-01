@@ -41,6 +41,7 @@
  *      ## media classes
  *      ## theme-specific typography classes
  *      ## MailtoUI style overrides
+ * ### index.html
  * # PAGE WRAP
  *      ## circles
  * # INTRO
@@ -60,6 +61,7 @@
  * # FOOTER
  *      ## copyright
  *      ## go top
+ * ### profile.html
  *
  * ------------------------------------------------------------------ */
 
@@ -234,7 +236,7 @@
     /* spacing
      * base font size: 19px 
      * vertical space unit : 32px
-     */ 
+     */
     --base-size: 62.5%;
     --multiplier: 1;
     --base-font-size: calc(1.9rem * var(--multiplier));
@@ -3153,7 +3155,7 @@ img.u-pull-left {
  * ## main navigation
  * -------------------------------------------------------------------- */
 
- 
+
 /* --------------------------------------------------------------------
  * ## mobile menu toggle
  * -------------------------------------------------------------------- */
@@ -3953,7 +3955,7 @@ img.u-pull-left {
     color: var(--color-1);
 }
 
- 
+
 /* --------------------------------------------------------------------
  * ## works portfolio
  * -------------------------------------------------------------------- */
@@ -4125,6 +4127,8 @@ img.u-pull-left {
     transform: scale(1.2);
 }
 
+
+
 /* ------------------------------------------------------------------- 
  * ## modal popup
  * ------------------------------------------------------------------- */
@@ -4134,7 +4138,7 @@ img.u-pull-left {
     /* Changed to use var */
     font-size: calc(var(--text-size) * 0.9447);
     line-height: var(--vspace-0_875);
-    color: rgba(0, 0, 0, 0.75);
+    color: var(--color-black);
     /* This might need adjustment based on light/dark mode */
     overflow-y: auto;
     position: relative;
@@ -4198,15 +4202,15 @@ img.u-pull-left {
 }
 
 .modal-popup__details {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--color-black);
     font-size: var(--text-xs);
     line-height: var(--vspace-1_25);
     color: var(--color-white);
     /* Changed to use var */
     padding: 0 1.2rem;
     position: absolute;
-    top: var(--vspace-1);
-    left: var(--vspace-1);
+    bottom: var(--vspace-1);
+    right: var(--vspace-1);
 }
 
 .modal-popup__details:focus,
@@ -4648,3 +4652,9 @@ img.u-pull-left {
         right: 6vw;
     }
 }
+
+/* ------------------------------------------------------------------- 
+ * profile.html
+ * 
+ * ------------------------------------------------------------------- */
+
