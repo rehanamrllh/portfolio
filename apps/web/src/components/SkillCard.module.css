@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -7,6 +11,13 @@
   text-align: center;
   min-height: 100px;
   aspect-ratio: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card.active {
+  border-color: var(--border-strong) !important;
+  background: var(--bg-card-hover) !important;
 }
 
 .icon {
@@ -15,7 +26,8 @@
   transition: all var(--duration-base) var(--ease-out);
 }
 
-.card:hover .icon {
+.card:hover .icon,
+.active .icon {
   transform: scale(1.15);
   color: var(--text-primary);
 }
@@ -27,6 +39,62 @@
   transition: color var(--duration-fast);
 }
 
-.card:hover .name {
+.card:hover .name,
+.active .name {
   color: var(--text-primary);
+}
+
+/* ---- Popover ---- */
+.popover {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 220px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+  animation: popIn 0.18s var(--ease-out);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.popoverArrow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--border-medium);
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.popoverTitle {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.popoverText {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
 }
