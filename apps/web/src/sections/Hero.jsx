@@ -1,36 +1,46 @@
 import { personal } from '@/data/personal';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import LiquidChrome from '@/components/LiquidChrome';
+import Magnet from '@/components/Magnet';
+import { useTheme } from '@/hooks/useTheme';
 import styles from './Hero.module.css';
 
 export function Hero() {
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
+
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="hero" className={styles.hero}>
-      {/* Background video */}
-      <video
-        className={styles.bgVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_063509_7d167302-4fd4-480b-8260-18ab572333d4.mp4"
-      />
+    <section id="hero" className={`${styles.hero} ${isLight ? styles.heroLight : ''}`}>
+      {/* LiquidChrome WebGL background */}
+      <div className={styles.liquidBg}>
+        <LiquidChrome
+          baseColor={isLight ? [0.92, 0.92, 0.92] : [0.08, 0.08, 0.08]}
+          speed={0.15}
+          amplitude={0.4}
+          frequencyX={2.5}
+          frequencyY={2.0}
+          interactive={true}
+        />
+      </div>
 
       {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navInner}>
-          {/* Left pill — logo + brand */}
-          <div className={styles.navPillLeft}>
-            <div className={styles.logoInitials}>ra</div>
-            <span className={styles.brandName}>rewhan</span>
-          </div>
+          {/* Left pill — logo + brand (Magnet) */}
+          <Magnet padding={60} magnetStrength={5}>
+            <div className={`${styles.navPillLeft} ${isLight ? styles.navPillLight : ''}`}>
+              <div className={`${styles.logoInitials} ${isLight ? styles.logoLight : ''}`}>ra</div>
+              <span className={styles.brandName}>rewhan</span>
+            </div>
+          </Magnet>
 
           {/* Center pill — nav links (hidden on mobile) */}
-          <div className={styles.navPillCenter}>
+          <div className={`${styles.navPillCenter} ${isLight ? styles.navPillLight : ''}`}>
             <a href="#about" className={styles.navLink} onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>about</a>
             <a href="#skills" className={styles.navLink} onClick={(e) => { e.preventDefault(); scrollTo('skills'); }}>skills</a>
             <a href="#projects" className={styles.navLink} onClick={(e) => { e.preventDefault(); scrollTo('projects'); }}>projects</a>
@@ -39,8 +49,12 @@ export function Hero() {
 
           {/* Right controls */}
           <div className={styles.navRight}>
-            <ThemeToggle />
-            <a href={personal.resumeUrl} download className={styles.navBtn}>download cv</a>
+            <Magnet padding={50} magnetStrength={8}>
+              <ThemeToggle />
+            </Magnet>
+            <Magnet padding={50} magnetStrength={7}>
+              <a href={personal.resumeUrl} download className={`${styles.navBtn} ${isLight ? styles.navBtnLight : ''}`}>download cv</a>
+            </Magnet>
           </div>
         </div>
       </nav>

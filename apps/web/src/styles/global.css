@@ -15,8 +15,8 @@ body {
 
 /* ---- Selection ---- */
 ::selection {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background-color: var(--border-strong);
+  color: var(--text-primary);
 }
 
 /* ---- Scrollbar ---- */

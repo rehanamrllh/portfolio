@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { personal } from '@/data/personal';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import Magnet from '@/components/Magnet';
 import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
@@ -41,10 +42,12 @@ export function Navbar() {
     <nav id="navbar" className={`${styles.nav} ${visible ? styles.visible : ''}`}>
       <div className={styles.inner}>
         {/* Logo pill */}
-        <a href="#hero" className={styles.logoPill} onClick={(e) => handleNavClick(e, 'hero')}>
-          <div className={styles.logoCircle}>ra</div>
-          <span className={styles.logoName}>rewhan</span>
-        </a>
+        <Magnet padding={60} magnetStrength={5}>
+          <a href="#hero" className={styles.logoPill} onClick={(e) => handleNavClick(e, 'hero')}>
+            <div className={styles.logoCircle}>ra</div>
+            <span className={styles.logoName}>rewhan</span>
+          </a>
+        </Magnet>
 
         {/* Center nav links */}
         <div className={styles.centerPill}>
@@ -62,10 +65,14 @@ export function Navbar() {
 
         {/* Right CTA */}
         <div className={styles.rightControls}>
-          <div className={styles.themeToggleDesktop}>
-            <ThemeToggle />
-          </div>
-          <a href={personal.resumeUrl} download className={styles.ctaBtn}>download cv</a>
+          <Magnet padding={60} magnetStrength={5}>
+            <div className={styles.themeToggleDesktop}>
+              <ThemeToggle />
+            </div>
+          </Magnet>
+          <Magnet padding={60} magnetStrength={5}>
+            <a href={personal.resumeUrl} download className={styles.ctaBtn}>download cv</a>
+          </Magnet>
         </div>
 
         {/* Mobile hamburger */}

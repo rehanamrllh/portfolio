@@ -18,7 +18,7 @@
 
 .hoverGlow:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 24px var(--accent-glow-strong);
 }
 
 .interactive {

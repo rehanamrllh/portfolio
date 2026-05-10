@@ -12,13 +12,13 @@
   font-family: var(--font-sans);
 }
 
-/* --- Background video --- */
-.bgVideo {
+/* --- LiquidChrome background wrapper --- */
+.liquidBg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: 0;
 }
 
 /* --- Navbar --- */
@@ -141,6 +141,7 @@
 /* --- Foreground content wrapper --- */
 .foreground {
   position: relative;
+  z-index: 10;
   height: 100%;
   width: 100%;
 }
@@ -332,4 +333,67 @@
   right: 0;
   height: 12rem;
   background: linear-gradient(to bottom, transparent, #000);
+}
+
+/* --- Light mode overrides --- */
+
+.heroLight {
+  background: #fff;
+}
+
+.heroLight .heroTitle {
+  color: #000;
+}
+
+.heroLight .statNumber {
+  color: #000;
+}
+
+.heroLight .statLabel,
+.heroLight .statLabelRight {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.heroLight .dividerAnglePos,
+.heroLight .dividerAngleNeg {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.heroLight .description {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.navPillLight {
+  background: rgba(245, 245, 245, 0.92) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navPillLight .navLink {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.navPillLight .navLink:hover {
+  color: #000;
+}
+
+.navPillLight .brandName {
+  color: #000 !important;
+}
+
+.logoLight {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.navBtnLight {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.navBtnLight:hover {
+  background: #222 !important;
+}
+
+.heroLight .bottomGradient {
+  background: linear-gradient(to bottom, transparent, #fff);
 }

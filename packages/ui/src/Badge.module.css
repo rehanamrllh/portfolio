@@ -16,19 +16,19 @@
 }
 
 .default {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.6);
+  background: var(--bg-card);
+  color: var(--text-secondary);
   border: 1px solid var(--border-subtle);
 }
 
 .accent {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
 }
 
 .solid {
-  background: #fff;
-  color: #000;
+  background: var(--text-primary);
+  color: var(--text-inverse);
   border: 1px solid transparent;
 }

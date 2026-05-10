@@ -1,5 +1,6 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { personal } from '@/data/personal';
+import ScrollReveal from '@/components/ScrollReveal';
 import styles from './About.module.css';
 
 export function About() {
@@ -15,13 +16,20 @@ export function About() {
         </div>
 
         <div className={`${styles.grid} reveal`}>
-          {/* Left — large intro */}
+          {/* Left — large intro with ScrollReveal */}
           <div className={styles.intro}>
-            <h2 className={styles.heading}>
-              a passionate developer building at the intersection of
-              <span className={styles.highlight}> code</span> and
-              <span className={styles.highlight}> design</span>.
-            </h2>
+            <ScrollReveal
+              baseOpacity={0}
+              enableBlur={true}
+              baseRotation={4}
+              blurStrength={8}
+              containerClassName={styles.scrollRevealContainer}
+              textClassName={styles.scrollRevealText}
+              wordAnimationEnd="bottom center"
+              rotationEnd="bottom center"
+            >
+              a passionate developer building at the intersection of code and design.
+            </ScrollReveal>
           </div>
 
           {/* Right — bio + details */}

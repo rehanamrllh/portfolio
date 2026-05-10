@@ -53,6 +53,25 @@
   font-weight: var(--weight-medium);
 }
 
+/* ScrollReveal overrides */
+.scrollRevealContainer {
+  margin: 0 !important;
+}
+
+.scrollRevealText {
+  font-size: var(--text-4xl) !important;
+  font-weight: var(--weight-light) !important;
+  color: var(--text-secondary) !important;
+  line-height: var(--leading-snug) !important;
+  letter-spacing: -0.02em !important;
+}
+
+@media (max-width: 768px) {
+  .scrollRevealText {
+    font-size: var(--text-3xl) !important;
+  }
+}
+
 /* Content */
 .content {
   display: flex;
@@ -69,7 +88,8 @@
 
 .paragraph:first-of-type {
   font-size: var(--text-lg);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  opacity: 0.85;
 }
 
 /* Info pills */
@@ -93,7 +113,7 @@
 }
 
 .pill svg {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-tertiary);
   flex-shrink: 0;
 }
 
