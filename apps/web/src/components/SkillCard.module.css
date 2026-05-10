@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  text-align: center;
+  min-height: 100px;
+  aspect-ratio: 1;
+}
+
+.icon {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.card:hover .icon {
+  transform: scale(1.15);
+  color: #fff;
+}
+
+.name {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast);
+}
+
+.card:hover .name {
+  color: var(--text-primary);
+}

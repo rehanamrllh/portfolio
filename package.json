@@ -1,0 +1,15 @@
+{
+  "name": "rayhan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio website for Rayhan Amrullah",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspace=apps/web",
+    "preview": "npm run preview --workspace=apps/web"
+  }
+}

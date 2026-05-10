@@ -1,0 +1,260 @@
+/* ============================================
+   Navbar — Pill Style, Monochrome
+   ============================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: 1rem 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 400ms ease, visibility 400ms ease;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    padding: 1rem 2.5rem;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.themeToggleDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .themeToggleDesktop {
+    display: inline-flex;
+  }
+}
+
+/* ---- Logo pill ---- */
+.logoPill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(23, 23, 23, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem 0.625rem 0.75rem;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+
+.logoPill:hover {
+  background: rgba(40, 40, 40, 0.95);
+  color: #fff;
+}
+
+.logoCircle {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 0.625rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.logoName {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+/* ---- Center pill (desktop) ---- */
+.centerPill {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(23, 23, 23, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 9999px;
+  padding: 0.375rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .centerPill {
+    display: flex;
+  }
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  transition: color 200ms ease, background 200ms ease;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #fff;
+}
+
+.link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---- CTA button (desktop) ---- */
+.ctaBtn {
+  display: none;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  text-decoration: none;
+  transition: background 200ms ease;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  background: #e5e5e5;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .ctaBtn {
+    display: inline-flex;
+  }
+}
+
+/* ---- Hamburger (mobile) ---- */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  padding: 4px 0;
+  z-index: calc(var(--z-sticky) + 2);
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 9999px;
+  transition: all 300ms ease;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ---- Mobile menu ---- */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: calc(var(--z-sticky) + 1);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+.mobileOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobileLink {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 200ms ease;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.mobileLink:hover,
+.mobileLink.active {
+  color: #fff;
+}
+
+.mobileCta {
+  display: inline-flex;
+  background: #fff;
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+
+.mobileCta:hover {
+  background: #e5e5e5;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .mobileMenu {
+    display: flex;
+  }
+}

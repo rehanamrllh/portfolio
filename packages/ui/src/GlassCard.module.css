@@ -1,0 +1,53 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  transition: all var(--duration-base) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Variants */
+.default {}
+
+.hoverLift:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
+}
+
+.hoverGlow:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.05);
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+}
+
+/* Padding sizes */
+.pad-sm {
+  padding: var(--space-3);
+}
+
+.pad-md {
+  padding: var(--space-6);
+}
+
+.pad-lg {
+  padding: var(--space-8);
+}
+
+.pad-xl {
+  padding: var(--space-12);
+}
+
+.pad-none {
+  padding: 0;
+}

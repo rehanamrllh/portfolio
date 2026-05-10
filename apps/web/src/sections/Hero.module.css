@@ -1,0 +1,335 @@
+/* ============================================
+   Hero Section — Cinematic Portfolio
+   ============================================ */
+
+/* --- Section container --- */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: var(--font-sans);
+}
+
+/* --- Background video --- */
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: 1.5rem 2.5rem 0;
+  }
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navRight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Left pill */
+.navPillLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(23, 23, 23, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+}
+
+.logoInitials {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 0.625rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.brandName {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+/* Center pill — hidden on mobile */
+.navPillCenter {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(23, 23, 23, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  padding: 0.5rem 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .navPillCenter {
+    display: flex;
+  }
+}
+
+.navLink {
+  color: #d4d4d4;
+  font-size: 0.875rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  transition: color 200ms ease;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #fff;
+}
+
+/* Right button */
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.navBtn:hover {
+  background: #e5e5e5;
+  color: #000;
+}
+
+/* --- Foreground content wrapper --- */
+.foreground {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* --- Hero title base --- */
+.heroTitle {
+  position: absolute;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14vw;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-transform: lowercase;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 13vw;
+  }
+}
+
+/* --- Staggered word positions --- */
+.wordOne {
+  left: 1rem;
+  top: 18%;
+}
+
+.wordTwo {
+  right: 1rem;
+  top: 38%;
+}
+
+.wordThree {
+  left: 18%;
+  top: 58%;
+}
+
+@media (min-width: 768px) {
+  .wordOne {
+    left: 2.5rem;
+  }
+
+  .wordTwo {
+    right: 2.5rem;
+  }
+
+  .wordThree {
+    left: 28%;
+  }
+}
+
+/* --- Description paragraph --- */
+.description {
+  position: absolute;
+  left: 1.5rem;
+  top: 46%;
+  max-width: 240px;
+  font-size: 15px;
+  line-height: 1.375;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: lowercase;
+}
+
+@media (min-width: 768px) {
+  .description {
+    left: 2.5rem;
+  }
+}
+
+/* --- Stat blocks shared --- */
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statNumber {
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .statNumber {
+    font-size: 3rem;
+  }
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.25rem;
+  text-transform: lowercase;
+}
+
+.statLabelRight {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.25rem;
+  text-align: right;
+  text-transform: lowercase;
+}
+
+@media (min-width: 768px) {
+  .statLabel,
+  .statLabelRight {
+    font-size: 0.875rem;
+  }
+}
+
+/* Diagonal dividers */
+.dividerAnglePos,
+.dividerAngleNeg {
+  display: none;
+  height: 1px;
+  width: 6rem;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dividerAnglePos {
+  transform: rotate(20deg);
+}
+
+.dividerAngleNeg {
+  transform: rotate(-20deg);
+}
+
+@media (min-width: 768px) {
+  .dividerAnglePos,
+  .dividerAngleNeg {
+    display: block;
+  }
+}
+
+/* Stat block — top-right */
+.statTopRight {
+  position: absolute;
+  right: 1.5rem;
+  top: 14%;
+}
+
+@media (min-width: 768px) {
+  .statTopRight {
+    right: 6rem;
+  }
+}
+
+.statTopRight .statRow {
+  justify-content: flex-end;
+}
+
+/* Stat block — bottom-left */
+.statBottomLeft {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .statBottomLeft {
+    left: 5rem;
+    bottom: 6rem;
+  }
+}
+
+/* Stat block — bottom-right */
+.statBottomRight {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .statBottomRight {
+    right: 5rem;
+    bottom: 5rem;
+  }
+}
+
+/* --- Bottom gradient overlay --- */
+.bottomGradient {
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12rem;
+  background: linear-gradient(to bottom, transparent, #000);
+}

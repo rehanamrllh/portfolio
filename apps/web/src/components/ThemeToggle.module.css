@@ -1,0 +1,63 @@
+.toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--duration-base) var(--ease-out);
+  color: var(--text-primary);
+}
+
+.toggle:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  transform: scale(1.05);
+}
+
+.iconWrapper {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.iconWrapper.dark {
+  transform: rotate(0deg);
+}
+
+.iconWrapper.light {
+  transform: rotate(180deg);
+}
+
+.sun, .moon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  inset: 0;
+  transition: all var(--duration-slow) var(--ease-out);
+}
+
+.dark .sun {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+}
+
+.dark .moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.light .sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.light .moon {
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+}
