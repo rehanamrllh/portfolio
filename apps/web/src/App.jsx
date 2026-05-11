@@ -5,7 +5,6 @@ import { About } from '@/sections/About';
 import { Skills } from '@/sections/Skills';
 import { Projects } from '@/sections/Projects';
 import { Contact } from '@/sections/Contact';
-import { LanyardSection } from '@/sections/LanyardSection';
 import './App.css';
 
 function App() {
