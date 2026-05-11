@@ -14,7 +14,7 @@ export function Footer() {
             © {new Date().getFullYear()} {personal.name.toLowerCase()}
           </span>
           <span className={styles.madeWith}>
-            built with react & passion ☕
+            built with react & passion ❤️
           </span>
         </div>
 

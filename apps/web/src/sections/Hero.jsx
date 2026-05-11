@@ -4,6 +4,7 @@ import LiquidChrome from '@/components/LiquidChrome';
 import Magnet from '@/components/Magnet';
 import { useTheme } from '@/hooks/useTheme';
 import styles from './Hero.module.css';
+import TextType from '@/components/TextType';
 
 export function Hero() {
   const { theme } = useTheme();
@@ -68,7 +69,15 @@ export function Hero() {
 
         {/* Description paragraph */}
         <p className={styles.description}>
-          {personal.heroTagline.toLowerCase()}
+          <TextType
+            as="span"
+            text={personal.heroTagline.toLowerCase()}
+            loop={true}
+            typingSpeed={28}
+            deletingSpeed={18}
+            pauseDuration={1200}
+            showCursor={true}
+          />
         </p>
 
         {/* Stat block — top-right */}

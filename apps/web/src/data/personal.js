@@ -5,7 +5,7 @@ export const personal = {
   subtitle: "Informatics Engineering Student",
   university: "University of Muhammadiyah Malang",
   graduationYear: 2028,
-  location: "Blitar, East Java, Indonesia",
+  location: "Malang, East Java, Indonesia",
   currentCity: "Malang, Indonesia",
 
   bio: [
@@ -17,9 +17,9 @@ export const personal = {
   heroTagline: "I build digital experiences that blend clean code with thoughtful design.",
 
   stats: [
-    { value: "3+", label: "Years Coding" },
+    { value: "4+", label: "Years Coding" },
     { value: "10+", label: "Projects Built" },
-    { value: "15+", label: "Technologies" }
+    { value: "20+", label: "Technologies" }
   ],
 
   social: {
