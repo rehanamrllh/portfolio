@@ -34,10 +34,10 @@ export function Hero() {
         <div className={styles.navInner}>
           {/* Left pill — logo + brand (Magnet) */}
           <Magnet padding={60} magnetStrength={5}>
-            <div className={`${styles.navPillLeft} ${isLight ? styles.navPillLight : ''}`}>
+            <a href="#about" className={`${styles.navPillLeft} ${isLight ? styles.navPillLight : ''}`} onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>
               <div className={`${styles.logoInitials} ${isLight ? styles.logoLight : ''}`}>ra</div>
               <span className={styles.brandName}>rewhan</span>
-            </div>
+            </a>
           </Magnet>
 
           {/* Center pill — nav links (hidden on mobile) */}

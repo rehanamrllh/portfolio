@@ -1,16 +1,18 @@
+import project1Image from '@/assets/projects/project1.png';
+
 export const projects = [
   {
-    id: "taskflow",
-    title: "TaskFlow",
-    subtitle: "Project Management Dashboard",
-    shortDescription: "A collaborative task management platform with real-time updates, Kanban boards, and team analytics.",
-    problem: "Teams often struggle with scattered task tracking across multiple tools, leading to missed deadlines and poor visibility into project progress.",
-    solution: "Built a unified dashboard with drag-and-drop Kanban boards, real-time WebSocket updates, role-based access control, and automated progress tracking with visual analytics.",
-    outcome: "Reduced task completion time by 35% in test scenarios. The intuitive interface received positive feedback for its clean UX and responsiveness across devices.",
-    techStack: ["React", "Node.js", "MongoDB", "Socket.io", "Tailwind CSS"],
-    image: null,
-    liveUrl: "#",
-    repoUrl: "#",
+    id: "classico",
+    title: "Classico",
+    subtitle: "Class Website (SMA Negeri 1 Srengat)",
+    shortDescription: "Official website for 12 MIPA 2 — a simple multi-page site for sharing class information, schedules, photos, and updates.",
+    problem: "The class needed a single place to publish information and memories (photos, schedules, and announcements) that’s easy to access and share.",
+    solution: "Built a lightweight static website with multiple pages and structured sections, plus a simple forms flow for collecting submissions and keeping content organized.",
+    outcome: "Shipped a clean, shareable class site hosted on GitHub Pages with a straightforward structure that’s easy to maintain.",
+    techStack: ["HTML", "CSS", "JavaScript", "PHP"],
+    image: project1Image,
+    liveUrl: "https://rehanamrllh.github.io/classico.github.io/",
+    repoUrl: "https://github.com/rehanamrllh/classico.github.io",
     featured: true
   },
   {

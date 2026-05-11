@@ -43,7 +43,7 @@ export function Navbar() {
       <div className={styles.inner}>
         {/* Logo pill */}
         <Magnet padding={60} magnetStrength={5}>
-          <a href="#hero" className={styles.logoPill} onClick={(e) => handleNavClick(e, 'hero')}>
+          <a href="#about" className={styles.logoPill} onClick={(e) => handleNavClick(e, 'about')}>
             <div className={styles.logoCircle}>ra</div>
             <span className={styles.logoName}>rewhan</span>
           </a>
