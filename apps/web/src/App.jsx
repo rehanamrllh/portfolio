@@ -18,7 +18,6 @@ function App() {
         <Skills />
         <Projects />
         <Contact />
-        <LanyardSection />
       </main>
       <Footer />
     </>

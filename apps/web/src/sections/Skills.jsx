@@ -29,7 +29,11 @@ export function Skills() {
               <div className={`${styles.grid} reveal-stagger`}>
                 {category.skills.map((skill) => (
                   <div key={skill.name} className="reveal">
-                    <SkillCard name={skill.name} icon={skill.icon} />
+                    <SkillCard
+                      name={skill.name}
+                      icon={skill.icon}
+                      description={skill.description}
+                    />
                   </div>
                 ))}
               </div>
