@@ -30,5 +30,5 @@ export const personal = {
     instagram: "https://www.instagram.com/rehanamrllh/"
   },
 
-  resumeUrl: "/resume.pdf"
+  resumeUrl: new URL("../assets/resume.pdf", import.meta.url).href
 };
