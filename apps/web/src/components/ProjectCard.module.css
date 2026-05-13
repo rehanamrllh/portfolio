@@ -29,14 +29,15 @@
 }
 
 .placeholderImg {
-  width: 75%;
-  height: 80%;
-  margin: auto;
-  margin-top: 8%;
+  width: 78%;
+  height: 82%;
+  margin: 8% auto 0;
   background: var(--bg-primary);
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-radius: var(--radius-md);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .mockupBar {
@@ -60,9 +61,18 @@
 
 .mockupContent {
   padding: 12px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.mockupPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: calc(var(--radius-md) - 2px);
 }
 
 .mockupLine {
@@ -137,6 +147,7 @@
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-4);
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;

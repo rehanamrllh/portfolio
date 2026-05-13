@@ -1,4 +1,5 @@
 import project1Image from '@/assets/projects/project1.png';
+import project2Image from '@/assets/projects/project2.png';
 
 export const projects = [
   {
@@ -16,17 +17,17 @@ export const projects = [
     featured: true
   },
   {
-    id: "foodiehub",
-    title: "FoodieHub",
-    subtitle: "Food Delivery App UI/UX",
-    shortDescription: "A modern food ordering application with smart recommendations, real-time tracking, and seamless payment integration.",
-    problem: "Existing food delivery apps in the local market had cluttered interfaces and slow checkout processes, causing high cart abandonment rates.",
-    solution: "Designed and developed a mobile-first UI with one-tap ordering, AI-powered meal suggestions based on user preferences, and a streamlined 3-step checkout flow with multiple payment options.",
-    outcome: "Achieved a 92% task completion rate in usability testing. The clean design system was praised by peers and faculty during academic project presentations.",
-    techStack: ["Next.js", "TypeScript", "Firebase", "Figma", "Stripe API"],
-    image: null,
-    liveUrl: "#",
-    repoUrl: "#",
+    id: "szybot",
+    title: "Szybot",
+    subtitle: "Discord Music Bot",
+    shortDescription: "A Discord music bot that plays songs from titles, URLs, or search queries with queue management and player controls.",
+    problem: "Discord servers needed a simple music bot that could handle playback, queue control, and skip or repeat actions without a cluttered command set.",
+    solution: "Built a Node.js bot with discord.js and discord-player, then added prefix and slash commands for play, queue, shuffle, skip, stop, and help workflows.",
+    outcome: "Shipped an interactive music bot with queue viewing, now-playing embeds, and control buttons for a smoother listening experience in Discord.",
+    techStack: ["JavaScript", "Node.js", "discord.js", "discord-player", "FFmpeg"],
+    image: project2Image,
+    liveUrl: "https://github.com/rehanamrllh/szybot",
+    repoUrl: "https://github.com/rehanamrllh/szybot.git",
     featured: true
   },
   {

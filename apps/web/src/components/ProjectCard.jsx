@@ -5,7 +5,7 @@ export function ProjectCard({ project, onClick }) {
   const colors = {
     classico: '#3b82f6',
     taskflow: '#3b82f6',
-    foodiehub: '#f59e0b',
+    szybot: '#f59e0b',
     ecotrack: '#22c55e',
     pixelcraft: '#a855f7',
   };
@@ -19,21 +19,23 @@ export function ProjectCard({ project, onClick }) {
     >
       {/* Thumbnail */}
       <div className={styles.thumbnail} style={{ '--card-accent': accentColor }}>
-        {project.image ? (
-          <img className={styles.projectImage} src={project.image} alt={`${project.title} preview`} loading="lazy" />
-        ) : (
-          <div className={styles.placeholderImg}>
-            <div className={styles.mockupBar}>
-              <span /><span /><span />
-            </div>
-            <div className={styles.mockupContent}>
-              <div className={styles.mockupLine} style={{ width: '70%' }} />
-              <div className={styles.mockupLine} style={{ width: '50%' }} />
-              <div className={styles.mockupBlock} />
-              <div className={styles.mockupLine} style={{ width: '60%' }} />
-            </div>
+        <div className={styles.placeholderImg}>
+          <div className={styles.mockupBar}>
+            <span /><span /><span />
           </div>
-        )}
+          <div className={styles.mockupContent}>
+            {project.image ? (
+              <img className={styles.mockupPreview} src={project.image} alt={`${project.title} preview`} loading="lazy" />
+            ) : (
+              <>
+                <div className={styles.mockupLine} style={{ width: '70%' }} />
+                <div className={styles.mockupLine} style={{ width: '50%' }} />
+                <div className={styles.mockupBlock} />
+                <div className={styles.mockupLine} style={{ width: '60%' }} />
+              </>
+            )}
+          </div>
+        </div>
         <div className={styles.overlay}>
           <span className={styles.viewText}>View Case Study →</span>
         </div>
