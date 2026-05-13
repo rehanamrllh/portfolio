@@ -9,6 +9,8 @@ export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
+  const encodeForm = (data) => new URLSearchParams(data).toString();
+
   const handleChange = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -18,10 +20,13 @@ export function Contact() {
     setStatus('sending');
 
     try {
-      const res = await fetch('https://formspree.io/f/mdabpbpr', {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeForm({
+          'form-name': 'contact',
+          ...form,
+        }),
       });
 
       if (res.ok) {
@@ -57,7 +62,18 @@ export function Contact() {
         <div className={`${styles.grid} reveal`}>
           {/* Form */}
           <div className={styles.formCard}>
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className={styles.form}
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p style={{ display: 'none' }}>
+                <label htmlFor="bot-field">Don’t fill this out if you’re human: <input id="bot-field" name="bot-field" /></label>
+              </p>
               <div className={styles.formRow}>
                 <div className={styles.field}>
                   <label htmlFor="contact-name" className={styles.fieldLabel}>name</label>
@@ -133,6 +149,18 @@ export function Contact() {
               >
                 {status === 'sending' ? 'sending...' : status === 'sent' ? 'message sent! ✓' : status === 'error' ? 'failed — try again' : 'send message'}
               </Button>
+
+              {status === 'sent' && (
+                <p className={styles.feedbackSuccess} role="status" aria-live="polite">
+                  thanks for reaching out. i'll get back to you soon.
+                </p>
+              )}
+
+              {status === 'error' && (
+                <p className={styles.feedbackError} role="status" aria-live="polite">
+                  something went wrong. please try sending your message again.
+                </p>
+              )}
             </form>
           </div>
 
