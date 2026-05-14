@@ -5,10 +5,13 @@ import Magnet from '@/components/Magnet';
 import { useTheme } from '@/hooks/useTheme';
 import styles from './Hero.module.css';
 import TextType from '@/components/TextType';
+import darkLogo from '@/assets/darklogo.png';
+import lightLogo from '@/assets/lightlogo.png';
 
 export function Hero() {
   const { theme } = useTheme();
   const isLight = theme === 'light';
+  const logoSrc = isLight ? darkLogo : lightLogo;
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -35,7 +38,9 @@ export function Hero() {
           {/* Left pill — logo + brand (Magnet) */}
           <Magnet padding={60} magnetStrength={5}>
             <a href="#about" className={`${styles.navPillLeft} ${isLight ? styles.navPillLight : ''}`} onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>
-              <div className={`${styles.logoInitials} ${isLight ? styles.logoLight : ''}`}>ra</div>
+              <div className={`${styles.logoInitials} ${isLight ? styles.logoLight : ''}`}>
+                <img className={styles.logoImage} src={logoSrc} alt="Rewhan logo" />
+              </div>
               <span className={styles.brandName}>rewhan</span>
             </a>
           </Magnet>

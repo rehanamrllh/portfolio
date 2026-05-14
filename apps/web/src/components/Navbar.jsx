@@ -1,9 +1,12 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useActiveSection } from '@/hooks/useActiveSection';
+import { useTheme } from '@/hooks/useTheme';
 import { personal } from '@/data/personal';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import Magnet from '@/components/Magnet';
 import styles from './Navbar.module.css';
+import darkLogo from '@/assets/darklogo.png';
+import lightLogo from '@/assets/lightlogo.png';
 
 const NAV_LINKS = [
   { id: 'about', label: 'about' },
@@ -17,6 +20,8 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const sectionIds = useMemo(() => NAV_LINKS.map(l => l.id), []);
   const activeSection = useActiveSection(sectionIds);
+  const { theme } = useTheme();
+  const logoSrc = theme === 'light' ? darkLogo : lightLogo;
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,12 +49,14 @@ export function Navbar() {
         {/* Logo pill */}
         <Magnet padding={60} magnetStrength={5}>
           <a href="#about" className={styles.logoPill} onClick={(e) => handleNavClick(e, 'about')}>
-            <div className={styles.logoCircle}>ra</div>
+            <div className={styles.logoCircle}>
+              <img className={styles.logoImage} src={logoSrc} alt="Rewhan logo" />
+            </div>
             <span className={styles.logoName}>rewhan</span>
           </a>
         </Magnet>
 
-        {/* Center nav links */}
+        {/* Center nav links */}  
         <div className={styles.centerPill}>
           {NAV_LINKS.map(link => (
             <a
