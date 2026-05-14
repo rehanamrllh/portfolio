@@ -1,7 +1,31 @@
 import project1Image from '@/assets/projects/project1.png';
 import project2Image from '@/assets/projects/project2.png';
+import project3Image from '@/assets/projects/project3.png';
 
-export const projects = [
+const szybotPlayerImage = new URL('../assets/projects/discordbot/player.png', import.meta.url).href;
+const classicoFullpageImage = new URL('../assets/projects/classico/classico.png', import.meta.url).href;
+
+const placeholderProject = {
+  title: "Coming Soon",
+  subtitle: "Project placeholder",
+  shortDescription: "Work in progress. Details coming soon.",
+  problem: "TBA",
+  solution: "TBA",
+  outcome: "TBA",
+  techStack: [],
+  image: null,
+  repoUrl: null,
+  featured: false
+};
+
+const placeholderCount = 20;
+
+const placeholders = Array.from({ length: placeholderCount }, (_, index) => ({
+  id: `coming-soon-${index + 1}`,
+  repoUrl: null
+}));
+
+const rawProjects = [
   {
     id: "classico",
     title: "Classico",
@@ -12,7 +36,8 @@ export const projects = [
     outcome: "Shipped a clean, shareable class site hosted on GitHub Pages with a straightforward structure that’s easy to maintain.",
     techStack: ["HTML", "CSS", "JavaScript", "PHP"],
     image: project1Image,
-    liveUrl: "https://rehanamrllh.github.io/classico.github.io/",
+    modalImage: classicoFullpageImage,
+    modalImageAlt: "Classico full-page screenshot",
     repoUrl: "https://github.com/rehanamrllh/classico.github.io",
     featured: true
   },
@@ -26,36 +51,35 @@ export const projects = [
     outcome: "Shipped an interactive music bot with queue viewing, now-playing embeds, and control buttons for a smoother listening experience in Discord.",
     techStack: ["JavaScript", "Node.js", "discord.js", "discord-player", "FFmpeg"],
     image: project2Image,
-    liveUrl: "https://github.com/rehanamrllh/szybot",
+    modalImage: szybotPlayerImage,
+    modalImageAlt: "Szybot player controls screenshot",
     repoUrl: "https://github.com/rehanamrllh/szybot.git",
     featured: true
   },
   {
-    id: "ecotrack",
-    title: "EcoTrack",
-    subtitle: "Environmental Data Visualizer",
-    shortDescription: "An interactive data visualization tool for monitoring environmental metrics with beautiful charts and predictive insights.",
-    problem: "Environmental data from IoT sensors was being stored in raw CSV files with no accessible way to visualize trends or generate actionable insights.",
-    solution: "Created an interactive dashboard that ingests sensor data, processes it through a Python analytics pipeline, and renders dynamic charts with drill-down capabilities and anomaly detection alerts.",
-    outcome: "Successfully processed and visualized 50,000+ data points. The predictive model achieved 89% accuracy in forecasting air quality trends.",
-    techStack: ["Python", "React", "D3.js", "PostgreSQL", "Docker"],
-    image: null,
-    liveUrl: "#",
-    repoUrl: "#",
+    id: "zhapbot",
+    title: "ZhapBot",
+    subtitle: "Telegram AI Chat Bot",
+    shortDescription: "A Telegram bot built with aiogram that uses Gemini for AI conversations, stores chat history in SQLite, and converts files to PDF.",
+    problem: "Telegram users needed one bot that could keep conversation context, manage chat history, and also handle simple PDF conversion workflows.",
+    solution: "Built a Python bot with aiogram, Gemini-powered chat responses, SQLite-backed memory, and file handlers for JPG, PNG, TXT, and image album to PDF conversion.",
+    outcome: "Delivered a multi-purpose Telegram bot with persistent conversation context, quick cleanup commands, and a compact command set for everyday use.",
+    techStack: ["Python", "aiogram", "Gemini", "SQLite", "Telegram Bot API"],
+    image: project3Image,
+    repoUrl: "https://github.com/rehanamrllh/ZhapBot.git",
     featured: true
   },
-  {
-    id: "pixelcraft",
-    title: "PixelCraft Studio",
-    subtitle: "Design Collaboration Tool",
-    shortDescription: "A browser-based design tool for creating and sharing UI mockups with real-time collaboration features.",
-    problem: "Small teams and students often cannot afford premium design tools, yet need collaborative prototyping capabilities for their projects.",
-    solution: "Built a lightweight, browser-based design canvas using HTML5 Canvas API with real-time cursor sharing via WebRTC, component libraries, and one-click export to PNG/SVG formats.",
-    outcome: "Used by 3 student teams during a university hackathon. The tool handled concurrent editing sessions with less than 100ms latency.",
-    techStack: ["JavaScript", "Canvas API", "WebRTC", "Express", "MySQL"],
-    image: null,
-    liveUrl: "#",
-    repoUrl: "#",
-    featured: false
-  }
+  ...placeholders
 ];
+
+export const projects = rawProjects.map((project) => {
+  if (project.repoUrl && project.repoUrl !== '#') {
+    return project;
+  }
+
+  return {
+    ...project,
+    ...placeholderProject,
+    id: project.id
+  };
+});
