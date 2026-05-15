@@ -13,11 +13,20 @@ const Magnet = ({
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const magnetRef = useRef(null);
 
   useEffect(() => {
-    if (disabled) {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (disabled || isMobile) {
       setPosition({ x: 0, y: 0 });
+      setIsActive(false);
       return;
     }
 
@@ -47,7 +56,7 @@ const Magnet = ({
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [padding, disabled, magnetStrength]);
+  }, [padding, disabled, magnetStrength, isMobile]);
 
   const transitionStyle = isActive ? activeTransition : inactiveTransition;
 

@@ -49,7 +49,7 @@ const rawProjects = [
     problem: "Discord servers needed a simple music bot that could handle playback, queue control, and skip or repeat actions without a cluttered command set.",
     solution: "Built a Node.js bot with discord.js and discord-player, then added prefix and slash commands for play, queue, shuffle, skip, stop, and help workflows.",
     outcome: "Shipped an interactive music bot with queue viewing, now-playing embeds, and control buttons for a smoother listening experience in Discord.",
-    techStack: ["JavaScript", "Node.js", "discord.js", "discord-player", "FFmpeg"],
+    techStack: ["JavaScript", "Node.js"],
     image: project2Image,
     modalImage: szybotPlayerImage,
     modalImageAlt: "Szybot player controls screenshot",
@@ -64,7 +64,7 @@ const rawProjects = [
     problem: "Telegram users needed one bot that could keep conversation context, manage chat history, and also handle simple PDF conversion workflows.",
     solution: "Built a Python bot with aiogram, Gemini-powered chat responses, SQLite-backed memory, and file handlers for JPG, PNG, TXT, and image album to PDF conversion.",
     outcome: "Delivered a multi-purpose Telegram bot with persistent conversation context, quick cleanup commands, and a compact command set for everyday use.",
-    techStack: ["Python", "aiogram", "Gemini", "SQLite", "Telegram Bot API"],
+    techStack: ["Python", "Gemini", "SQLite", "Telegram Bot API", "Gemini API"],
     image: project3Image,
     repoUrl: "https://github.com/rehanamrllh/ZhapBot.git",
     featured: true
