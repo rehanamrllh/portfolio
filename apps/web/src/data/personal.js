@@ -22,6 +22,33 @@ export const personal = {
     { value: "20+", label: "Technologies" }
   ],
 
+  experience: [
+    {
+      role: "Fullstack Developer",
+      company: "Freelance / Personal Projects",
+      period: "2022 — Present",
+      location: "Malang, Indonesia",
+      highlights: [
+        "Built responsive web apps with React, Vite, and Node.js.",
+        "Designed UI systems and delivered end-to-end features.",
+        "Collaborated with peers on academic and community projects."
+      ]
+    }
+  ],
+
+  education: [
+    {
+      school: "University of Muhammadiyah Malang",
+      degree: "B.Sc. Informatics Engineering",
+      period: "2024 — 2028",
+      location: "Malang, Indonesia",
+      highlights: [
+        "Focus on software engineering and human-computer interaction.",
+        "Active in campus tech communities and collaborative projects."
+      ]
+    }
+  ],
+
   social: {
     email: "rehanamrllh@gmail.com",
     github: "https://github.com/rehanamrllh",
