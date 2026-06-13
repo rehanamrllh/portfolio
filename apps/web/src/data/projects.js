@@ -1,9 +1,12 @@
 import project1Image from '@/assets/projects/project1.png';
 import project2Image from '@/assets/projects/project2.png';
 import project3Image from '@/assets/projects/project3.png';
+import project4Image from '@/assets/projects/project4.png';
 
 const szybotPlayerImage = new URL('../assets/projects/discordbot/player.png', import.meta.url).href;
 const classicoFullpageImage = new URL('../assets/projects/classico/classico.png', import.meta.url).href;
+const twiceCafeCustPageImage = new URL('../assets/projects/twicecafe/customerpage.png', import.meta.url).href;
+const twiceCafeAdminPageImage = new URL('../assets/projects/twicecafe/adminpage.png', import.meta.url).href;
 
 const placeholderProject = {
   title: "Coming Soon",
@@ -34,7 +37,7 @@ const rawProjects = [
     problem: "The class needed a single place to publish information and memories (photos, schedules, and announcements) that’s easy to access and share.",
     solution: "Built a lightweight static website with multiple pages and structured sections, plus a simple forms flow for collecting submissions and keeping content organized.",
     outcome: "Shipped a clean, shareable class site hosted on GitHub Pages with a straightforward structure that’s easy to maintain.",
-    techStack: ["HTML", "CSS", "JavaScript", "PHP"],
+    techStack: ["HTML", "CSS", "JavaScript", "Website"],
     image: project1Image,
     modalImage: classicoFullpageImage,
     modalImageAlt: "Classico full-page screenshot",
@@ -49,7 +52,7 @@ const rawProjects = [
     problem: "Discord servers needed a simple music bot that could handle playback, queue control, and skip or repeat actions without a cluttered command set.",
     solution: "Built a Node.js bot with discord.js and discord-player, then added prefix and slash commands for play, queue, shuffle, skip, stop, and help workflows.",
     outcome: "Shipped an interactive music bot with queue viewing, now-playing embeds, and control buttons for a smoother listening experience in Discord.",
-    techStack: ["JavaScript", "Node.js"],
+    techStack: ["JavaScript", "Node.js", "Bot"],
     image: project2Image,
     modalImage: szybotPlayerImage,
     modalImageAlt: "Szybot player controls screenshot",
@@ -64,11 +67,28 @@ const rawProjects = [
     problem: "Telegram users needed one bot that could keep conversation context, manage chat history, and also handle simple PDF conversion workflows.",
     solution: "Built a Python bot with aiogram, Gemini-powered chat responses, SQLite-backed memory, and file handlers for JPG, PNG, TXT, and image album to PDF conversion.",
     outcome: "Delivered a multi-purpose Telegram bot with persistent conversation context, quick cleanup commands, and a compact command set for everyday use.",
-    techStack: ["Python", "Gemini", "SQLite", "Telegram Bot API", "Gemini API"],
+    techStack: ["Python", "Gemini", "SQLite", "Telegram Bot API", "Gemini API", "Bot"],
     image: project3Image,
     repoUrl: "https://github.com/rehanamrllh/ZhapBot.git",
     featured: true
   },
+  {
+    id: "Self Service Sistem for Cafe",
+    title: "Twice Cafe - Self Service Cafe Sistem",
+    subtitle: "A sistem cafe website with qr code, menu, ordering, and admin panel.",
+    shortDescription: "A cafe website with QR code menu, online ordering, and admin panel for managing orders and menu items.",
+    problem: "The cafe needed a digital solution for customers to view the menu, place orders, and for staff to manage orders and menu items efficiently.",
+    solution: "Built a full-stack web application with a QR code generator for the menu, an ordering system, and an admin panel for order and menu management.",
+    outcome: "Shipped a functional cafe website that streamlines the ordering process for customers and simplifies management for staff.",
+    techStack: ["HTML", "CSS", "JavaScript", "React", "Vite", "Firebase", "Website"],
+    image: project4Image,
+    modalImage: twiceCafeCustPageImage, 
+    modalImageSecondary: twiceCafeAdminPageImage,
+    modalImageAlt: "Twice Cafe customer page screenshot",
+    repoUrl: 'https://github.com/rehanamrllh/Tugas-Akhir-RPL.git',
+    featured: true
+  },
+
   ...placeholders
 ];
 
